@@ -1,0 +1,15 @@
+<div class="dig-form-control">
+  <div class="start">
+    <ng-content select="[slot = start]"></ng-content>
+    <ng-content select="dig-form-label"></ng-content>
+    <dig-form-label *ngIf="label">{{label}}</dig-form-label>
+  </div>
+  <div class="dig-form-control-element" *ngIf="control">
+    <ion-textarea *ngIf="type == 'textarea'" [formControl]="control"></ion-textarea>
+  </div>
+  <div class="end">
+    <ng-content select="dig-form-helper-text"></ng-content>
+    <dig-form-helper-text *ngIf="helperText">{{helperText}}</dig-form-helper-text>
+    <ng-content select="[slot = end]"></ng-content>
+  </div>
+</div>

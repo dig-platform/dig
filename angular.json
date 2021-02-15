@@ -123,6 +123,50 @@
           }
         }
       }
-    }},
-  "defaultProject": "dig-package"
+    },
+    "dig": {
+      "projectType": "library",
+      "root": "projects/dig",
+      "sourceRoot": "projects/dig/src",
+      "prefix": "dig",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/dig/tsconfig.lib.json",
+            "project": "projects/dig/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/dig/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/dig/src/test.ts",
+            "tsConfig": "projects/dig/tsconfig.spec.json",
+            "karmaConfig": "projects/dig/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/dig/tsconfig.lib.json",
+              "projects/dig/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "dig-package",
+  "cli": {
+    "analytics": false
+  }
 }
